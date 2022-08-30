@@ -5,6 +5,7 @@ import mapIcon from '../../assets/map_icon.svg'
 import cartIcon from '../../assets/cart.svg'
 
 export function Header() {
+  const quantCart = 1
   return (
     <HeaderContainer>
       <img src={logo} alt="" />
@@ -14,6 +15,7 @@ export function Header() {
           Porto Alegre, RS
         </span>
         <NavLink to="/checkout">
+          {quantCart > 0 ? <strong>{quantCart}</strong> : ''}
           <img src={cartIcon} alt="" />
         </NavLink>
       </LocationCartContainer>
