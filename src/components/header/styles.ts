@@ -5,7 +5,6 @@ export const HeaderContainer = styled.header`
   flex-direction: row;
   justify-content: space-between;
 
-  background-color: red;
   height: 6.5rem;
   align-items: center;
 
@@ -31,6 +30,7 @@ export const LocationCartContainer = styled.div`
 
     img {
       height: 22px;
+      background-color: transparent;
     }
   }
 
@@ -45,6 +45,7 @@ export const LocationCartContainer = styled.div`
 
     img {
       height: 22px;
+      background-color: transparent;
     }
   }
 `
