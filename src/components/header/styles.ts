@@ -6,8 +6,15 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   height: 6.5rem;
   align-items: center;
+  max-width: 90rem;
+  padding: 0 1rem;
+  margin: 0 auto;
   img {
     height: 2.5rem;
+  }
+  a {
+    display: flex;
+    align-items: center;
   }
 `
 
@@ -50,7 +57,6 @@ export const LocationCartContainer = styled.div`
       border-radius: 50%;
       margin-top: -8px;
       margin-right: -8.35px;
-
       color: ${(props) => props.theme.white};
       background-color: ${(props) => props.theme['yellow-dark']};
     }

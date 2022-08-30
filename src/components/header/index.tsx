@@ -8,7 +8,9 @@ export function Header() {
   const quantCart = 1
   return (
     <HeaderContainer>
-      <img src={logo} alt="" />
+      <NavLink to="/">
+        <img src={logo} alt="" />
+      </NavLink>
       <LocationCartContainer>
         <span>
           <img src={mapIcon} alt="" />
