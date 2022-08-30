@@ -9,4 +9,7 @@ export const defaultTheme = {
 
   white: '#FFFF',
   'white-background': '#FAFAFA',
+
+  'title-color': '#272221',
+  'subtitle-color': '#403937',
 }
