@@ -1,51 +1,54 @@
 import {
-  HomeContainer,
-  HomeContent,
+  HomeSection,
+  MainContent,
   Title,
   SubTitle,
-  AdicionalContent,
-  LeftContent,
+  AdditionalContent,
+  TextContent,
 } from './styles'
 import imgHome from '../../assets/imgHome.svg'
-import cartAdicionalContent from '../../assets/cartAdicionalContent.svg'
-import packAdicionalContent from '../../assets/packAdicionalContent.svg'
-import deliverAdicionalContent from '../../assets/deliverAdicionalContent.svg'
-import coffeeAdicionalContent from '../../assets/coffeeAdicionalContent.svg'
+import cartAdditionalContent from '../../assets/cartAdditionalContent.svg'
+import packAdditionalContent from '../../assets/packAdditionalContent.svg'
+import deliverAdditionalContent from '../../assets/deliverAdditionalContent.svg'
+import coffeeAdditionalContent from '../../assets/coffeeAdditionalContent.svg'
 
 export function Home() {
   return (
-    <HomeContainer>
-      <HomeContent>
-        <LeftContent>
+    <HomeSection>
+      <MainContent>
+        <TextContent>
           <Title>Encontre o café perfeito para qualquer hora do dia</Title>
           <SubTitle>
             Com o Coffe Delivery você recebe seu café onde estiver, a qualquer
             hora
           </SubTitle>
-          <AdicionalContent>
+          <AdditionalContent>
             <span>
-              <img src={cartAdicionalContent} alt="cartAdicionalContent" />
+              <img src={cartAdditionalContent} alt="cartAdditionalContent" />
               Compra simples e segura
             </span>
             <span>
-              <img src={packAdicionalContent} alt="packAdicionalContent" />
+              <img src={packAdditionalContent} alt="packAdditionalContent" />
               Embalagem mantém o café intacto
             </span>
             <span>
               <img
-                src={deliverAdicionalContent}
-                alt="deliverAdicionalContent"
+                src={deliverAdditionalContent}
+                alt="deliverAdditionalContent"
               />
               Entrega rápida e rastreada
             </span>
             <span>
-              <img src={coffeeAdicionalContent} alt="coffeeAdicionalContent" />O
-              café chega fresquinho até você
+              <img
+                src={coffeeAdditionalContent}
+                alt="coffeeAdditionalContent"
+              />
+              O café chega fresquinho até você
             </span>
-          </AdicionalContent>
-        </LeftContent>
+          </AdditionalContent>
+        </TextContent>
         <img src={imgHome} alt="" />
-      </HomeContent>
-    </HomeContainer>
+      </MainContent>
+    </HomeSection>
   )
 }

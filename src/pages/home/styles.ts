@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import bakcgroundHome from '../../assets/backgroundHome.svg'
 
-export const HomeContainer = styled.div`
+export const HomeSection = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 34rem;
@@ -10,7 +10,7 @@ export const HomeContainer = styled.div`
   background-size: cover;
 `
 
-export const HomeContent = styled.div`
+export const MainContent = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -28,7 +28,7 @@ export const HomeContent = styled.div`
   }
 `
 
-export const LeftContent = styled.div`
+export const TextContent = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -55,7 +55,7 @@ export const SubTitle = styled.span`
   font-stretch: 100;
 `
 
-export const AdicionalContent = styled.div`
+export const AdditionalContent = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -67,7 +67,7 @@ export const AdicionalContent = styled.div`
     gap: 0.5rem;
     min-width: 45%;
     margin-top: 1rem;
-    color: ${(props) => props.theme['adicional-content-text']};
+    color: ${(props) => props.theme['additional-content-text']};
     line-height: 1.3;
     img {
       width: 2rem;
