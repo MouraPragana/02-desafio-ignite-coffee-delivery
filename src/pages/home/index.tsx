@@ -7,6 +7,10 @@ import {
   LeftContent,
 } from './styles'
 import imgHome from '../../assets/imgHome.svg'
+import cartAdicionalContent from '../../assets/cartAdicionalContent.svg'
+import packAdicionalContent from '../../assets/packAdicionalContent.svg'
+import deliverAdicionalContent from '../../assets/deliverAdicionalContent.svg'
+import coffeeAdicionalContent from '../../assets/coffeeAdicionalContent.svg'
 
 export function Home() {
   return (
@@ -18,7 +22,27 @@ export function Home() {
             Com o Coffe Delivery você recebe seu café onde estiver, a qualquer
             hora
           </SubTitle>
-          <AdicionalContent>Conteudo Adicional</AdicionalContent>
+          <AdicionalContent>
+            <span>
+              <img src={cartAdicionalContent} alt="cartAdicionalContent" />
+              Compra simples e segura
+            </span>
+            <span>
+              <img src={packAdicionalContent} alt="packAdicionalContent" />
+              Embalagem mantém o café intacto
+            </span>
+            <span>
+              <img
+                src={deliverAdicionalContent}
+                alt="deliverAdicionalContent"
+              />
+              Entrega rápida e rastreada
+            </span>
+            <span>
+              <img src={coffeeAdicionalContent} alt="coffeeAdicionalContent" />O
+              café chega fresquinho até você
+            </span>
+          </AdicionalContent>
         </LeftContent>
         <img src={imgHome} alt="" />
       </HomeContent>

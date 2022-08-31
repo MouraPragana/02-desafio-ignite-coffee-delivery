@@ -21,6 +21,8 @@ export const HomeContent = styled.div`
   padding: 0 1rem;
   margin: 94px auto;
   img {
+    display: flex;
+    width: 100%;
     max-width: 29.75rem;
     max-height: 22.5rem;
   }
@@ -37,7 +39,7 @@ export const Title = styled.h1`
   font-weight: 800;
   font-size: 3rem;
   line-height: 1.3;
-  max-width: 588px;
+  max-width: 36.75rem;
   font-family: 'Baloo 2', cursive;
   color: ${(props) => props.theme['title-color']};
 `
@@ -46,7 +48,7 @@ export const SubTitle = styled.span`
   display: flex;
   font-size: 1.25rem;
   line-height: 1.3;
-  max-width: 588px;
+  max-width: 36.75rem;
   align-self: stretch;
   margin-top: 1rem;
   color: ${(props) => props.theme['subtitle-color']};
@@ -55,5 +57,20 @@ export const SubTitle = styled.span`
 
 export const AdicionalContent = styled.div`
   display: flex;
-  margin-top: 4.25rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 3.25rem;
+  max-width: 35.4375rem;
+  span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 45%;
+    margin-top: 1rem;
+    color: ${(props) => props.theme['adicional-content-text']};
+    line-height: 1.3;
+    img {
+      width: 2rem;
+    }
+  }
 `
