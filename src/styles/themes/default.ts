@@ -12,4 +12,6 @@ export const defaultTheme = {
 
   'title-color': '#272221',
   'subtitle-color': '#403937',
+
+  'adicional-content-text': '#574F4D',
 }
