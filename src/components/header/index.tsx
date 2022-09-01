@@ -1,8 +1,8 @@
 import { HeaderContainer, LocationCartContainer } from './styles'
 import { NavLink } from 'react-router-dom'
-import logo from '../../assets/logo.svg'
-import mapIcon from '../../assets/map_icon.svg'
-import cartIcon from '../../assets/cart.svg'
+import logo from '../../assets/svg/logo.svg'
+import mapIcon from '../../assets/svg/map_icon.svg'
+import cartIcon from '../../assets/svg/cart.svg'
 
 export function Header() {
   const quantCart = 1
