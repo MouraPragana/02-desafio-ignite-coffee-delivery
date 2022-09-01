@@ -8,6 +8,19 @@ export function ProductsSection() {
       <Title>Nossos Cafés</Title>
       <CoffeeContent>
         <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
       </CoffeeContent>
     </MainContent>
   )
