@@ -7,11 +7,11 @@ import {
   WelcomeSection,
 } from './styles'
 
-import imgHome from '../../../../assets/imgHome.svg'
-import cartAdditionalContent from '../../../../assets/cartAdditionalContent.svg'
-import packAdditionalContent from '../../../../assets/packAdditionalContent.svg'
-import deliverAdditionalContent from '../../../../assets/deliverAdditionalContent.svg'
-import coffeeAdditionalContent from '../../../../assets/coffeeAdditionalContent.svg'
+import imgHome from '../../../../assets/svg/imgHome.svg'
+import cartAdditionalContent from '../../../../assets/svg/cartAdditionalContent.svg'
+import packAdditionalContent from '../../../../assets/svg/packAdditionalContent.svg'
+import deliverAdditionalContent from '../../../../assets/svg/deliverAdditionalContent.svg'
+import coffeeAdditionalContent from '../../../../assets/svg/coffeeAdditionalContent.svg'
 
 export function WelComeSection() {
   return (

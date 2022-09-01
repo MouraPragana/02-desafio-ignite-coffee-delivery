@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import bakcgroundHome from '../../../../assets/backgroundHome.svg'
+import bakcgroundHome from '../../../../assets/svg/backgroundHome.svg'
 
 export const WelcomeSection = styled.div`
   display: flex;
