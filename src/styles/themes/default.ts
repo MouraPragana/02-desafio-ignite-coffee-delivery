@@ -14,4 +14,8 @@ export const defaultTheme = {
   'subtitle-color': '#403937',
 
   'additional-content-text': '#574F4D',
+  'background-productCard': '#F3F2F2',
+
+  'gray-medium': '#8D8686',
+  'gray-light': '#E6E5E5',
 }
