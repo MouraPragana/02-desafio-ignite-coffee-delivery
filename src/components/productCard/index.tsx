@@ -1,17 +1,38 @@
+import coffeeBrand1 from '../../assets/brands/coffeeBrand1.svg'
+import purpleCart from '../../assets/svg/purpleCart.svg'
+import {
+  Card,
+  ImageCard,
+  ProductAmount,
+  ProductDescription,
+  ProductPrice,
+  ProductPriceAndAmout,
+  ProductTag,
+  ProductTitle,
+} from './styles'
+
 export function ProductCard() {
   return (
-    <div>
-      <p>Imagem card</p>
-      <p>Tradicional</p>
-      <p>Expresso Tradicional</p>
-      <p>O tradicional café feito com água quente e grãos moídos</p>
-      <div>
-        <span>R$ 9,90</span>
-        <button>-</button>
-        <span>1</span>
-        <button>+</button>
-        <span>carrinho</span>
-      </div>
-    </div>
+    <Card>
+      <ImageCard src={coffeeBrand1} alt="" />
+      <ProductTag>Tradicional</ProductTag>
+      <ProductTitle>Expresso Tradicional</ProductTitle>
+      <ProductDescription>
+        O tradicional café feito com água quente e grãos moídos
+      </ProductDescription>
+      <ProductPriceAndAmout>
+        <ProductPrice>
+          <p>R$</p>9,90
+        </ProductPrice>
+        <ProductAmount>
+          <button>-</button>
+          <span>100</span>
+          <button>+</button>
+        </ProductAmount>
+        <button>
+          <img src={purpleCart} alt="" />
+        </button>
+      </ProductPriceAndAmout>
+    </Card>
   )
 }
