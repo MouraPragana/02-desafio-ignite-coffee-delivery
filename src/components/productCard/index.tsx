@@ -1,6 +1,7 @@
-import coffeeBrand1 from '../../assets/brands/coffeeBrand1.svg'
 import purpleCart from '../../assets/svg/purpleCart.svg'
 import {
+  ButtonAmount,
+  ButtonCart,
   Card,
   ImageCard,
   ProductAmount,
@@ -9,29 +10,49 @@ import {
   ProductPriceAndAmout,
   ProductTag,
   ProductTitle,
+  TagsContent,
 } from './styles'
+import { CurrencyConverter } from '../../functions/currencyConverter'
 
-export function ProductCard() {
+interface ProductCardProps {
+  tags: string[]
+  title: string
+  description: string
+  price: number
+  imageUrl: string
+}
+
+export function ProductCard({
+  tags,
+  title,
+  description,
+  price,
+  imageUrl,
+}: ProductCardProps) {
+  console.log(imageUrl)
   return (
     <Card>
-      <ImageCard src={coffeeBrand1} alt="" />
-      <ProductTag>Tradicional</ProductTag>
-      <ProductTitle>Expresso Tradicional</ProductTitle>
-      <ProductDescription>
-        O tradicional café feito com água quente e grãos moídos
-      </ProductDescription>
+      <ImageCard src={imageUrl} alt="" />
+      <TagsContent>
+        {tags.map((tag) => {
+          return <ProductTag key={tag}>{tag}</ProductTag>
+        })}
+      </TagsContent>
+      <ProductTitle>{title}</ProductTitle>
+      <ProductDescription>{description}</ProductDescription>
       <ProductPriceAndAmout>
         <ProductPrice>
-          <p>R$</p>9,90
+          <p>R$</p>
+          {CurrencyConverter(price)}
         </ProductPrice>
         <ProductAmount>
-          <button>-</button>
-          <span>100</span>
-          <button>+</button>
+          <ButtonAmount>-</ButtonAmount>
+          <span>10</span>
+          <ButtonAmount>+</ButtonAmount>
         </ProductAmount>
-        <button>
+        <ButtonCart>
           <img src={purpleCart} alt="" />
-        </button>
+        </ButtonCart>
       </ProductPriceAndAmout>
     </Card>
   )
