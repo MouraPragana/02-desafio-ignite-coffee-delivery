@@ -17,7 +17,7 @@ export const MainContent = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
-  max-width: 90rem;
+  max-width: 71rem;
   padding: 0 1rem;
   margin: 94px auto;
   img {
