@@ -61,13 +61,12 @@ export function CoffeeContextProvider({
   }
 
   const productsOnCart = () => {
-    return products.filter((item) => item.quant > 0).reduce((acc) => acc + 1, 0)
+    return products.length
   }
 
   const productQuant = (id: string) => {
     const product = products.find((item) => item.id === id)
-    const productQuant = product?.quant ? product.quant : 0
-    return productQuant
+    return product?.quant ? product.quant : 0
   }
 
   return (
