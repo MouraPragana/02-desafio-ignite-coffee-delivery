@@ -1,5 +1,5 @@
-import { useContext } from 'react'
 import { CoffeeContext } from '../../context/coffeeContext'
+import { useContext } from 'react'
 import { HeaderContainer, LocationCartContainer } from './styles'
 import { NavLink } from 'react-router-dom'
 import logo from '../../assets/svg/logo.svg'
@@ -19,7 +19,7 @@ export function Header() {
           Porto Alegre, RS
         </span>
         <NavLink to="/checkout">
-          {productsOnCart() > 0 ? <strong>{productsOnCart()}</strong> : ''}
+          {productsOnCart > 0 ? <strong>{productsOnCart}</strong> : ''}
           <img src={cartIcon} alt="" />
         </NavLink>
       </LocationCartContainer>
