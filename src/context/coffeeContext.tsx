@@ -1,16 +1,12 @@
-import { createContext, ReactNode, useState } from 'react'
-
-interface products {
-  id: string
-  quant: number
-}
+import { createContext, ReactNode, useReducer } from 'react'
+import { coffeeReducer, Product } from '../reducers/coffee/reducer'
+import { newProduct, removeProduct } from '../reducers/coffee/actions'
 
 interface CoffeeContextType {
-  products: products[]
-  addProduct: (id: string) => void
-  removeProduct: (id: string) => void
-  productQuant: (id: string) => number
-  productsOnCart: () => number
+  products: Product[]
+  productsOnCart: number
+  addNewProduct: (data: Product) => void
+  removeOneProduct: (data: Product) => void
 }
 
 export const CoffeeContext = createContext({} as CoffeeContextType)
@@ -22,62 +18,24 @@ interface CoffeeContextProviderProps {
 export function CoffeeContextProvider({
   children,
 }: CoffeeContextProviderProps) {
-  const [products, setProducts] = useState<products[]>([])
+  const [coffeeState, dispatch] = useReducer(coffeeReducer, {
+    products: [],
+    productsOnCart: 0,
+  })
 
-  function addProduct(id: string) {
-    const findProductIndex = products.findIndex((item) => item.id === id)
+  const { products, productsOnCart } = coffeeState
 
-    if (findProductIndex < 0) {
-      const newProduct = {
-        id,
-        quant: 1,
-      }
-      setProducts((state) => [...state, newProduct])
-    } else {
-      const newProductList = products.map((item) =>
-        item.id === id
-          ? {
-              ...item,
-              quant: item.quant + 1,
-            }
-          : item,
-      )
-      setProducts(newProductList)
-    }
+  function addNewProduct(data: Product) {
+    dispatch(newProduct(data))
   }
 
-  function removeProduct(id: string) {
-    const findProductIndex = products.findIndex((item) => item.id === id)
-
-    if (findProductIndex >= 0) {
-      const newProductList = products.map((item) =>
-        item.id === id
-          ? { ...item, quant: item.quant > 0 ? item.quant - 1 : 0 }
-          : item,
-      )
-      const productListOnCart = newProductList.filter((item) => item.quant > 0)
-      setProducts(productListOnCart)
-    }
-  }
-
-  const productsOnCart = () => {
-    return products.length
-  }
-
-  const productQuant = (id: string) => {
-    const product = products.find((item) => item.id === id)
-    return product?.quant ? product.quant : 0
+  function removeOneProduct(data: Product) {
+    dispatch(removeProduct(data))
   }
 
   return (
     <CoffeeContext.Provider
-      value={{
-        products,
-        addProduct,
-        removeProduct,
-        productsOnCart,
-        productQuant,
-      }}
+      value={{ addNewProduct, removeOneProduct, products, productsOnCart }}
     >
       {children}
     </CoffeeContext.Provider>
