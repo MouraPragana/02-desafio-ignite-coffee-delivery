@@ -27,6 +27,7 @@ export function ProductsSection() {
         {data.map((coffee) => {
           return (
             <ProductCard
+              id={coffee.id}
               key={coffee.id}
               tags={coffee.tags}
               title={coffee.title}
