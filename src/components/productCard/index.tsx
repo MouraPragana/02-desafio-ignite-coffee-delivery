@@ -33,15 +33,38 @@ export function ProductCard({
   price,
   imageUrl,
 }: ProductCardProps) {
-  const { addProduct, removeProduct, productQuant } = useContext(CoffeeContext)
+  const { addNewProduct, removeOneProduct, products } =
+    useContext(CoffeeContext)
 
   function handleAddProduct() {
-    addProduct(id)
+    const newProduct = {
+      id,
+      tags,
+      title,
+      description,
+      price,
+      imageUrl,
+      quant: 1,
+    }
+    addNewProduct(newProduct)
   }
 
   function handleRemoveProduct() {
-    removeProduct(id)
+    const productToRemove = {
+      id,
+      tags,
+      title,
+      description,
+      price,
+      imageUrl,
+      quant: 1,
+    }
+    removeOneProduct(productToRemove)
   }
+
+  const productQuantOnCart = products.find((product) => product.id === id)
+    ? products.find((product) => product.id === id)?.quant
+    : 0
 
   return (
     <Card>
@@ -60,7 +83,7 @@ export function ProductCard({
         </ProductPrice>
         <ProductAmount>
           <ButtonAmount onClick={handleRemoveProduct}>-</ButtonAmount>
-          <span>{productQuant(id)}</span>
+          <span>{productQuantOnCart}</span>
           <ButtonAmount onClick={handleAddProduct}>+</ButtonAmount>
         </ProductAmount>
         <ButtonCart>
