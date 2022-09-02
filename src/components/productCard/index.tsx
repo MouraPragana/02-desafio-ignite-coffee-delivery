@@ -13,8 +13,11 @@ import {
   TagsContent,
 } from './styles'
 import { CurrencyConverter } from '../../functions/currencyConverter'
+import { useContext } from 'react'
+import { CoffeeContext } from '../../context/coffeeContext'
 
 interface ProductCardProps {
+  id: string
   tags: string[]
   title: string
   description: string
@@ -23,13 +26,23 @@ interface ProductCardProps {
 }
 
 export function ProductCard({
+  id,
   tags,
   title,
   description,
   price,
   imageUrl,
 }: ProductCardProps) {
-  console.log(imageUrl)
+  const { addProduct, removeProduct, productQuant } = useContext(CoffeeContext)
+
+  function handleAddProduct() {
+    addProduct(id)
+  }
+
+  function handleRemoveProduct() {
+    removeProduct(id)
+  }
+
   return (
     <Card>
       <ImageCard src={imageUrl} alt="" />
@@ -46,9 +59,9 @@ export function ProductCard({
           {CurrencyConverter(price)}
         </ProductPrice>
         <ProductAmount>
-          <ButtonAmount>-</ButtonAmount>
-          <span>10</span>
-          <ButtonAmount>+</ButtonAmount>
+          <ButtonAmount onClick={handleRemoveProduct}>-</ButtonAmount>
+          <span>{productQuant(id)}</span>
+          <ButtonAmount onClick={handleAddProduct}>+</ButtonAmount>
         </ProductAmount>
         <ButtonCart>
           <img src={purpleCart} alt="" />
