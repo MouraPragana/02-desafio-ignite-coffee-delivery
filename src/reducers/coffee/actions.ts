@@ -15,11 +15,11 @@ export function newProduct(newProduct: Product) {
   }
 }
 
-export function removeProduct(product: Product) {
+export function removeProduct(produtToRemove: Product) {
   return {
     type: ActionTypes.REMOVE_PRODUCT,
     payload: {
-      product,
+      produtToRemove,
     },
   }
 }

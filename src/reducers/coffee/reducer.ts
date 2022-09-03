@@ -37,7 +37,7 @@ export function coffeeReducer(state: CoffeeState, action: any) {
 
     case ActionTypes.REMOVE_PRODUCT: {
       const productIndexOnCart = state.products.findIndex((product) => {
-        return product.id === action.payload.product.id
+        return product.id === action.payload.produtToRemove.id
       })
 
       if (productIndexOnCart < 0) {
@@ -48,7 +48,7 @@ export function coffeeReducer(state: CoffeeState, action: any) {
         return produce(state, (draft) => {
           draft.productsOnCart = state.productsOnCart - 1
           draft.products = draft.products.filter(
-            (product) => product.id !== action.payload.product.id,
+            (product) => product.id !== action.payload.produtToRemove.id,
           )
         })
       }
