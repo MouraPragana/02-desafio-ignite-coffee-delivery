@@ -46,7 +46,7 @@ export function coffeeReducer(state: CoffeeState, action: any) {
 
       if (state.products[productIndexOnCart].quant === 1) {
         return produce(state, (draft) => {
-          draft.productsOnCart = state.productsOnCart - 1
+          draft.productsOnCart -= 1
           draft.products = draft.products.filter(
             (product) => product.id !== action.payload.produtToRemove.id,
           )
