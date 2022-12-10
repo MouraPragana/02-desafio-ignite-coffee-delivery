@@ -17,13 +17,16 @@ export const Header = styled.span`
 export const Body = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin-top: 15px;
   padding: 2.5rem;
   background-color: #f3f2f2;
   border-radius: 6px;
+  height: 23.25rem;
 
   @media screen and (max-width: 768px) {
     min-height: 30rem;
+    justify-content: start;
   }
 
   img {
@@ -101,6 +104,6 @@ export const FooterPayament = styled.div`
   height: 207px;
 
   @media screen and (max-width: 768px) {
-    height: calc(207px + 15px + 6rem);
+    height: calc(207px + 7rem);
   }
 `;
