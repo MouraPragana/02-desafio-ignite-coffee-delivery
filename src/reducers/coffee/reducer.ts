@@ -16,7 +16,7 @@ export interface CoffeeState {
   productsOnCart: number
 }
 
-export function coffeeReducer(state: CoffeeState, action: any) {
+export function CoffeeReducer(state: CoffeeState, action: any) {
   switch (action.type) {
     case ActionTypes.ADD_NEW_PRODUCT: {
       const productIndexOnCart = state.products.findIndex((product) => {
@@ -37,7 +37,7 @@ export function coffeeReducer(state: CoffeeState, action: any) {
 
     case ActionTypes.REMOVE_PRODUCT: {
       const productIndexOnCart = state.products.findIndex((product) => {
-        return product.id === action.payload.produtToRemove.id
+        return product.id === action.payload.productToRemove.id
       })
 
       if (productIndexOnCart < 0) {
@@ -48,7 +48,7 @@ export function coffeeReducer(state: CoffeeState, action: any) {
         return produce(state, (draft) => {
           draft.productsOnCart -= 1
           draft.products = draft.products.filter(
-            (product) => product.id !== action.payload.produtToRemove.id,
+            (product) => product.id !== action.payload.productToRemove.id,
           )
         })
       }

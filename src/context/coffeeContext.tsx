@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useReducer } from 'react'
-import { coffeeReducer, Product } from '../reducers/coffee/reducer'
+import { CoffeeReducer, Product } from '../reducers/coffee/reducer'
 import { newProduct, removeProduct } from '../reducers/coffee/actions'
 
 interface CoffeeContextType {
@@ -18,7 +18,7 @@ interface CoffeeContextProviderProps {
 export function CoffeeContextProvider({
   children,
 }: CoffeeContextProviderProps) {
-  const [coffeeState, dispatch] = useReducer(coffeeReducer, {
+  const [coffeeState, dispatch] = useReducer(CoffeeReducer, {
     products: [],
     productsOnCart: 0,
   })
