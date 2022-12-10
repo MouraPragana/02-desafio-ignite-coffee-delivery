@@ -5,13 +5,13 @@ import {
   TextContent,
   Title,
   WelcomeSection,
-} from './styles'
+} from "./styles";
 
-import imgHome from '../../../../assets/svg/imgHome.svg'
-import cartAdditionalContent from '../../../../assets/svg/cartAdditionalContent.svg'
-import packAdditionalContent from '../../../../assets/svg/packAdditionalContent.svg'
-import deliverAdditionalContent from '../../../../assets/svg/deliverAdditionalContent.svg'
-import coffeeAdditionalContent from '../../../../assets/svg/coffeeAdditionalContent.svg'
+import imgHome from "../../../../assets/svg/imgHome.svg";
+import cartAdditionalContent from "../../../../assets/svg/cartAdditionalContent.svg";
+import packAdditionalContent from "../../../../assets/svg/packAdditionalContent.svg";
+import deliverAdditionalContent from "../../../../assets/svg/deliverAdditionalContent.svg";
+import coffeeAdditionalContent from "../../../../assets/svg/coffeeAdditionalContent.svg";
 
 export function WelComeSection() {
   return (
@@ -51,5 +51,5 @@ export function WelComeSection() {
         <img src={imgHome} alt="" />
       </MainContent>
     </WelcomeSection>
-  )
+  );
 }

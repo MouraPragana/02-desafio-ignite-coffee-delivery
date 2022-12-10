@@ -1,3 +1,10 @@
+import { CompleteOrderSection } from "./components/CompleteOrderSection";
+import { CheckoutPage } from "./styles";
+
 export function Checkout() {
-  return <h1>Checkout</h1>
+  return (
+    <CheckoutPage>
+      <CompleteOrderSection />
+    </CheckoutPage>
+  );
 }
