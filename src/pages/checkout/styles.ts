@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CheckoutPage = styled.div`
+export const CheckoutPage = styled.form`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
