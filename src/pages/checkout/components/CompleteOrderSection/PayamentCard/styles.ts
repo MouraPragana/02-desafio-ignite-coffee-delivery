@@ -9,6 +9,15 @@ export const PayamentCardStyled = styled.div`
   flex-direction: row;
   height: 51px;
 
+  cursor: pointer;
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    scale: 1.05;
+    background: #cfcece;
+  }
+
   span {
     text-transform: uppercase;
     line-height: 1.6;
