@@ -17,17 +17,12 @@ export const Header = styled.span`
 export const Body = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 2rem;
   margin-top: 15px;
   padding: 2.5rem;
   background-color: #f3f2f2;
   border-radius: 6px;
-  height: 23.25rem;
-
-  @media screen and (max-width: 768px) {
-    min-height: 30rem;
-    justify-content: start;
-  }
 
   img {
     width: 22px;
@@ -64,15 +59,27 @@ export const Title = styled.div`
 
 export const Content = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  height: 13.5rem;
-  justify-content: space-between;
-  margin-top: 2rem;
-
-  @media screen and (max-width: 768px) {
-    gap: 0.4rem;
-    justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
+  @media screen and (max-width: 768px) {
+    div {
+      gap: 1rem;
+    }
+  }
+`;
+
+export const RowPayament = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  justify-content: center;
 `;
 
 interface InputProps {
@@ -101,9 +108,4 @@ export const FooterPayament = styled.div`
   border-radius: 6px;
   max-width: 640px;
   width: 100%;
-  height: 207px;
-
-  @media screen and (max-width: 768px) {
-    height: calc(207px + 7rem);
-  }
 `;
