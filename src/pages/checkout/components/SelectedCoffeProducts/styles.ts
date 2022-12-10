@@ -1,0 +1,97 @@
+import styled from "styled-components";
+
+export const SelectCoffeProductColum = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 448px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+export const Header = styled.span`
+  color: ${(props) => props.theme["subtitle-color"]};
+  font-family: "Baloo 2";
+  font-size: 1.125rem;
+  line-height: 1.3;
+`;
+
+export const Content = styled.div`
+  margin-top: 15px;
+  background-color: #f3f2f2;
+  border-radius: 6px 44px;
+  padding: 16px 40px 40px 40px;
+
+  @media screen and (max-width: 768px) {
+    padding: 16px 15px 40px 15px;
+  }
+`;
+
+export const CartInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 24px;
+  gap: 12px;
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
+export const DescribeCartInfo = styled.span`
+  line-height: 1.3;
+  font-family: "Roboto";
+  font-size: 0.875rem;
+  color: #574f4d;
+`;
+
+export const PriceCartInfo = styled(DescribeCartInfo)`
+  font-size: 1rem;
+`;
+
+export const TotalCartInfo = styled(DescribeCartInfo)`
+  font-size: 1.25rem;
+  color: #403937;
+  font-weight: bold;
+`;
+
+export const FormSubmitButton = styled.button`
+  text-transform: uppercase;
+  width: 100%;
+  margin-top: 36px;
+  background: #dbac2c;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 8px;
+
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.6;
+
+  transition: all 0.2s ease-in-out;
+
+  cursor: pointer;
+
+  &:hover {
+    scale: 1.02;
+    background: #c59a27;
+  }
+`;
+
+export const TextoAviso = styled.span`
+  display: flex;
+  justify-content: center;
+  color: ${(props) => props.theme["subtitle-color"]};
+  font-family: "Baloo 2";
+  font-size: 1.125rem;
+  line-height: 1.3;
+  text-align: center;
+
+  margin-top: 15px;
+  background-color: #f3f2f2;
+  border-radius: 8px;
+  padding: 18px 25px;
+`;

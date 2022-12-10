@@ -3,7 +3,7 @@ import creditCard from "../../../../assets/svg/creditCard.svg";
 import Currency from "../../../../assets/svg/currency.svg";
 import debitCard from "../../../../assets/svg/debitCard.svg";
 import Gps from "../../../../assets/svg/gps.svg";
-import { PayamentCard } from "../PayamentCard";
+import { PayamentCard } from "../../../../components/payamentCard";
 
 import {
   AddressAndPaymentColum,

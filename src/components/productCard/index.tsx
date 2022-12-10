@@ -1,4 +1,4 @@
-import purpleCart from '../../assets/svg/purpleCart.svg'
+import purpleCart from "../../assets/svg/purpleCart.svg";
 import {
   ButtonAmount,
   ButtonCart,
@@ -11,18 +11,18 @@ import {
   ProductTag,
   ProductTitle,
   TagsContent,
-} from './styles'
-import { CurrencyConverter } from '../../functions/currencyConverter'
-import { useContext } from 'react'
-import { CoffeeContext } from '../../context/coffeeContext'
+} from "./styles";
+import { CurrencyConverter } from "../../functions/currencyConverter";
+import { useContext } from "react";
+import { CoffeeContext } from "../../context/coffeeContext";
 
 interface ProductCardProps {
-  id: string
-  tags: string[]
-  title: string
-  description: string
-  price: number
-  imageUrl: string
+  id: string;
+  tags: string[];
+  title: string;
+  description: string;
+  price: number;
+  imageUrl: string;
 }
 
 export function ProductCard({
@@ -34,7 +34,7 @@ export function ProductCard({
   imageUrl,
 }: ProductCardProps) {
   const { addNewProduct, removeOneProduct, products } =
-    useContext(CoffeeContext)
+    useContext(CoffeeContext);
 
   function handleAddProduct() {
     const newProduct = {
@@ -45,8 +45,8 @@ export function ProductCard({
       price,
       imageUrl,
       quant: 1,
-    }
-    addNewProduct(newProduct)
+    };
+    addNewProduct(newProduct);
   }
 
   function handleRemoveProduct() {
@@ -58,20 +58,20 @@ export function ProductCard({
       price,
       imageUrl,
       quant: 1,
-    }
-    removeOneProduct(productToRemove)
+    };
+    removeOneProduct(productToRemove);
   }
 
   const productQuantOnCart = products.find((product) => product.id === id)
     ? products.find((product) => product.id === id)?.quant
-    : 0
+    : 0;
 
   return (
     <Card>
       <ImageCard src={imageUrl} alt="" />
       <TagsContent>
         {tags.map((tag) => {
-          return <ProductTag key={tag}>{tag}</ProductTag>
+          return <ProductTag key={tag}>{tag}</ProductTag>;
         })}
       </TagsContent>
       <ProductTitle>{title}</ProductTitle>
@@ -91,5 +91,5 @@ export function ProductCard({
         </ButtonCart>
       </ProductPriceAndAmout>
     </Card>
-  )
+  );
 }
