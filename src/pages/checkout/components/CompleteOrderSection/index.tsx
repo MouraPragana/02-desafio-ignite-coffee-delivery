@@ -3,13 +3,15 @@ import creditCard from "../../../../assets/svg/creditCard.svg";
 import Currency from "../../../../assets/svg/currency.svg";
 import debitCard from "../../../../assets/svg/debitCard.svg";
 import Gps from "../../../../assets/svg/gps.svg";
-import { PayamentCard } from "../PayamentCard";
+import { PayamentCard } from "./PayamentCard";
+
 import {
   AddressAndPaymentColum,
   Body,
   Content,
   FooterPayament,
   Header,
+  InputPlaceholder,
   InputStyled,
   RowPayament,
   Title,
@@ -27,13 +29,16 @@ export function CompleteOrderSection() {
             <p>Informe o endereço onde deseja receber seu pedido</p>
           </div>
         </Title>
-
         <Content>
           <InputStyled width="200px" type="text" placeholder="CEP" />
           <InputStyled width="560px" type="text" placeholder="Rua" />
+
           <div>
             <InputStyled width="200px" type="text" placeholder="Número" />
-            <InputStyled width="348px" type="text" placeholder="Complemento" />
+            <InputPlaceholder>
+              <input id="complemento" placeholder="Complemento" />
+              <label htmlFor="complemento">opcional</label>
+            </InputPlaceholder>
           </div>
 
           <div>

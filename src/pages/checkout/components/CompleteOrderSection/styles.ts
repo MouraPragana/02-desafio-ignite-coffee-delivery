@@ -8,7 +8,7 @@ export const AddressAndPaymentColum = styled.div`
 `;
 
 export const Header = styled.span`
-  color: #403937;
+  color: ${(props) => props.theme["subtitle-color"]};
   font-family: "Baloo 2";
   font-size: 1.125rem;
   line-height: 1.3;
@@ -21,7 +21,7 @@ export const Body = styled.div`
   gap: 2rem;
   margin-top: 15px;
   padding: 2.5rem;
-  background-color: #f3f2f2;
+  background-color: ${(props) => props.theme["background-productCard"]};
   border-radius: 6px;
 
   img {
@@ -40,7 +40,7 @@ export const Title = styled.div`
   }
 
   span {
-    color: #403937;
+    color: ${(props) => props.theme["subtitle-color"]};
     font-family: "Roboto";
     line-height: 1.3;
     font-size: 1rem;
@@ -52,7 +52,7 @@ export const Title = styled.div`
     font-size: 0.875rem;
     font-family: "Roboto";
     line-height: 1.3;
-    color: #574f4d;
+    color: ${(props) => props.theme["additional-content-text"]};
     width: 100%;
   }
 `;
@@ -61,11 +61,19 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  span {
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+
   div {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
+
   @media screen and (max-width: 768px) {
     div {
       gap: 1rem;
@@ -84,13 +92,14 @@ export const RowPayament = styled.div`
 
 interface InputProps {
   width: string;
+  hasPlaceholderInTheEnd?: boolean;
 }
 
 export const InputStyled = styled.input<InputProps>`
   width: ${(props) => props.width};
   height: 42px;
   padding: 12px;
-  border: 1px solid #e6e5e5;
+  border: 1px solid ${(props) => props.theme["gray-light"]};
   border-radius: 4px;
   background: #eeeded;
 
@@ -99,12 +108,52 @@ export const InputStyled = styled.input<InputProps>`
   }
 `;
 
+export const InputPlaceholder = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  width: 348px;
+  background: #eeeded;
+
+  &:focus-within {
+    outline: auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+
+  input {
+    display: flex;
+    width: 250px;
+    padding: 12px;
+    background: #eeeded;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    flex: 1;
+    color: ${(props) => props.theme["gray-medium"]};
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+`;
+
 export const FooterPayament = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 15px;
   padding: 2.5rem;
-  background-color: #f3f2f2;
+  background-color: ${(props) => props.theme["background-productCard"]};
   border-radius: 6px;
   max-width: 640px;
   width: 100%;
