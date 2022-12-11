@@ -79,11 +79,15 @@ export function ProductCart({
         <span>{title}</span>
         <ProducAmountAndRemoveRow>
           <ProductAmount>
-            <ButtonAmount onClick={handleRemoveProduct}>-</ButtonAmount>
+            <ButtonAmount onClick={handleRemoveProduct} type="button">
+              -
+            </ButtonAmount>
             <span>{quant}</span>
-            <ButtonAmount onClick={handleAddProduct}>+</ButtonAmount>
+            <ButtonAmount onClick={handleAddProduct} type="button">
+              +
+            </ButtonAmount>
           </ProductAmount>
-          <RemoveButton onClick={handleDeleteAnEntireProduct}>
+          <RemoveButton onClick={handleDeleteAnEntireProduct} type="button">
             <img src={trashIcon} />
             <span>Remover</span>
           </RemoveButton>

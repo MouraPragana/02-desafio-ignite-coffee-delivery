@@ -1,5 +1,5 @@
-import { WelComeSection } from './components/welcomeSection'
-import { ProductsSection } from './components/productsSection'
+import { ProductsSection } from "./components/productsSection";
+import { WelComeSection } from "./components/welcomeSection";
 
 export function Home() {
   return (
@@ -7,5 +7,5 @@ export function Home() {
       <WelComeSection />
       <ProductsSection />
     </>
-  )
+  );
 }

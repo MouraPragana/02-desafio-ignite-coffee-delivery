@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { ProductCart } from "../../../../components/productCart";
+import { CoffeeContext } from "../../../../context/coffeeContext";
+import { CurrencyConverter } from "../../../../functions/currencyConverter";
 import {
   CartInfo,
   Content,
@@ -11,11 +15,6 @@ import {
   TextoAviso,
   TotalCartInfo,
 } from "./styles";
-
-import { useContext, useEffect } from "react";
-import { CoffeeContext } from "../../../../context/coffeeContext";
-import { CurrencyConverter } from "../../../../functions/currencyConverter";
-import { differenceInSeconds, formatDistanceToNow } from "date-fns";
 
 export function SelectedCoffeProducts() {
   const { products, lastOrder, setOrderHasArrived, setSecondsToArrive } =
@@ -31,31 +30,6 @@ export function SelectedCoffeProducts() {
   const secondsToArrive = lastOrder
     ? String(lastOrder.secondsToArrive % 60).padStart(2, "0")
     : 0;
-
-  useEffect(() => {
-    let interval: number;
-
-    if (lastOrder && !lastOrder.hasArrived) {
-      interval = setInterval(() => {
-        const secondsToDeliver = differenceInSeconds(
-          new Date(lastOrder.dateToDelivery),
-          new Date()
-        );
-
-        if (secondsToDeliver <= 0) {
-          return setOrderHasArrived();
-        }
-
-        if (secondsToDeliver > 0 && !Number.isNaN(secondsToDeliver)) {
-          return setSecondsToArrive(secondsToDeliver);
-        }
-      }, 1000);
-    }
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, [lastOrder, setOrderHasArrived, setSecondsToArrive]);
 
   return (
     <SelectCoffeProductColum>

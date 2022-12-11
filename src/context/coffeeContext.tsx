@@ -1,4 +1,6 @@
+import { differenceInSeconds } from "date-fns";
 import { createContext, ReactNode, useEffect, useReducer } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   changePaymentMethod,
   changeSecondsToArrive,
@@ -32,6 +34,8 @@ interface CoffeeContextProviderProps {
 export function CoffeeContextProvider({
   children,
 }: CoffeeContextProviderProps) {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [coffeeState, dispatch] = useReducer(
     CoffeeReducer,
     {
@@ -87,6 +91,32 @@ export function CoffeeContextProvider({
   useEffect(() => {
     localStorage.setItem("@ignite-coffe-delivery", JSON.stringify(coffeeState));
   }, [coffeeState]);
+
+  useEffect(() => {
+    let interval: number;
+
+    if (lastOrder && !lastOrder.hasArrived) {
+      interval = setInterval(() => {
+        const secondsToDeliver = differenceInSeconds(
+          new Date(lastOrder.dateToDelivery),
+          new Date()
+        );
+
+        if (secondsToDeliver <= 0) {
+          setOrderHasArrived();
+          location.pathname === "/checkout" && navigate(0);
+        }
+
+        if (secondsToDeliver > 0) {
+          return setSecondsToArrive(secondsToDeliver);
+        }
+      }, 1000);
+    }
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [lastOrder, setOrderHasArrived, setSecondsToArrive]);
 
   return (
     <CoffeeContext.Provider

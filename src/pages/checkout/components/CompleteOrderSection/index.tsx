@@ -21,7 +21,13 @@ import {
 } from "./styles";
 
 export function CompleteOrderSection() {
-  const { paymentMethod, selectPaymentMethod } = useContext(CoffeeContext);
+  const { paymentMethod, selectPaymentMethod, lastOrder } =
+    useContext(CoffeeContext);
+
+  const isFormDisabled =
+    lastOrder?.secondsToArrive <= 0 || !lastOrder?.secondsToArrive
+      ? false
+      : true;
   const { register } = useFormContext();
 
   function handleChangePaymentMethod(data: string) {
@@ -41,12 +47,16 @@ export function CompleteOrderSection() {
         </Title>
         <Content>
           <InputStyled
+            disabled={isFormDisabled}
+            defaultValue={isFormDisabled ? lastOrder.enderecoEntrega.cep : ""}
             width="200px"
             type="text"
             placeholder="CEP"
             {...register("cep")}
           />
           <InputStyled
+            disabled={isFormDisabled}
+            defaultValue={isFormDisabled ? lastOrder.enderecoEntrega.rua : ""}
             width="560px"
             type="text"
             placeholder="Rua"
@@ -55,6 +65,10 @@ export function CompleteOrderSection() {
 
           <div>
             <InputStyled
+              disabled={isFormDisabled}
+              defaultValue={
+                isFormDisabled ? lastOrder.enderecoEntrega.numero : ""
+              }
               width="200px"
               type="text"
               placeholder="Número"
@@ -62,6 +76,10 @@ export function CompleteOrderSection() {
             />
             <InputPlaceholder>
               <input
+                disabled={isFormDisabled}
+                defaultValue={
+                  isFormDisabled ? lastOrder.enderecoEntrega.complemento : ""
+                }
                 id="complemento"
                 placeholder="Complemento"
                 {...register("complemento")}
@@ -72,18 +90,28 @@ export function CompleteOrderSection() {
 
           <div>
             <InputStyled
+              disabled={isFormDisabled}
+              defaultValue={
+                isFormDisabled ? lastOrder.enderecoEntrega.bairro : ""
+              }
               width="200px"
               type="text"
               placeholder="Bairro"
               {...register("bairro")}
             />
             <InputStyled
+              disabled={isFormDisabled}
+              defaultValue={
+                isFormDisabled ? lastOrder.enderecoEntrega.cidade : ""
+              }
               width="276px"
               type="text"
               placeholder="Cidade"
               {...register("cidade")}
             />
             <InputStyled
+              disabled={isFormDisabled}
+              defaultValue={isFormDisabled ? lastOrder.enderecoEntrega.uf : ""}
               width="60px"
               type="text"
               placeholder="UF"

@@ -1,4 +1,7 @@
+import { useContext } from "react";
 import purpleCart from "../../assets/svg/purpleCart.svg";
+import { CoffeeContext } from "../../context/coffeeContext";
+import { CurrencyConverter } from "../../functions/currencyConverter";
 import {
   ButtonAmount,
   ButtonCart,
@@ -12,10 +15,6 @@ import {
   ProductTitle,
   TagsContent,
 } from "./styles";
-import { CurrencyConverter } from "../../functions/currencyConverter";
-import { useContext } from "react";
-import { CoffeeContext } from "../../context/coffeeContext";
-import { Link } from "react-router-dom";
 
 interface ProductCardProps {
   id: string;
@@ -83,9 +82,13 @@ export function ProductCard({
           {CurrencyConverter(price)}
         </ProductPrice>
         <ProductAmount>
-          <ButtonAmount onClick={handleRemoveProduct}>-</ButtonAmount>
+          <ButtonAmount onClick={handleRemoveProduct} type="button">
+            -
+          </ButtonAmount>
           <span>{productQuantOnCart}</span>
-          <ButtonAmount onClick={handleAddProduct}>+</ButtonAmount>
+          <ButtonAmount onClick={handleAddProduct} type="button">
+            +
+          </ButtonAmount>
         </ProductAmount>
         <ButtonCart to="/checkout">
           <img src={purpleCart} alt="" />
