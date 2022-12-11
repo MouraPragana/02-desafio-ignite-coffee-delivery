@@ -19,7 +19,11 @@ export function Header() {
           Porto Alegre, RS
         </span>
         <NavLink to="/checkout">
-          {products.length > 0 ? <strong>{products.length}</strong> : ""}
+          {products && products.length > 0 ? (
+            <strong>{products.length}</strong>
+          ) : (
+            ""
+          )}
           <img src={cartIcon} alt="" />
         </NavLink>
       </LocationCartContainer>

@@ -33,6 +33,8 @@ export function CoffeeContextProvider({
       if (storedStateAsJSON) {
         return JSON.parse(storedStateAsJSON);
       }
+
+      return { products: [] };
     }
   );
 
