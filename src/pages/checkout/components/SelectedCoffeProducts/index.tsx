@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { ProductCart } from "../../../../components/productCart";
 import { CoffeeContext } from "../../../../context/coffeeContext";
 import { CurrencyConverter } from "../../../../functions/currencyConverter";
