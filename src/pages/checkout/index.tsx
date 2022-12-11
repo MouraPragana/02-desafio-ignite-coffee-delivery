@@ -7,8 +7,10 @@ import { CoffeeContext } from "../../context/coffeeContext";
 import { CompleteOrderSection } from "./components/CompleteOrderSection";
 import { SelectedCoffeProducts } from "./components/SelectedCoffeProducts";
 import { CheckoutPage } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 export function Checkout() {
+  const navigate = useNavigate();
   const { paymentMethod, products, setLastOrder } = useContext(CoffeeContext);
 
   const schema = z.object({
@@ -38,14 +40,15 @@ export function Checkout() {
       products,
       enderecoEntrega: data,
       paymentMethod,
-      dateToDelivery: addMinutes(new Date(), 2),
+      dateToDelivery: addMinutes(new Date(), 30),
       hasArrived: false,
       secondsToArrive: differenceInSeconds(
-        addMinutes(new Date(), 2),
+        addMinutes(new Date(), 30),
         new Date()
       ),
     };
     setLastOrder(lastOrder);
+    navigate("/success");
   }
 
   function onError(e: any) {
