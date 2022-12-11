@@ -1,9 +1,11 @@
+import { useContext } from "react";
 import cash from "../../../../assets/svg/cash.svg";
 import creditCard from "../../../../assets/svg/creditCard.svg";
 import Currency from "../../../../assets/svg/currency.svg";
 import debitCard from "../../../../assets/svg/debitCard.svg";
 import Gps from "../../../../assets/svg/gps.svg";
 import { PayamentCard } from "../../../../components/payamentCard";
+import { CoffeeContext } from "../../../../context/coffeeContext";
 
 import {
   AddressAndPaymentColum,
@@ -18,6 +20,12 @@ import {
 } from "./styles";
 
 export function CompleteOrderSection() {
+  const { paymentMethod, selectPaymentMethod } = useContext(CoffeeContext);
+
+  function handleChangePaymentMethod(data: string) {
+    selectPaymentMethod(data);
+  }
+
   return (
     <AddressAndPaymentColum>
       <Header>Complete seu pedido</Header>
@@ -59,9 +67,24 @@ export function CompleteOrderSection() {
           </div>
         </Title>
         <RowPayament>
-          <PayamentCard icon={creditCard} />
-          <PayamentCard icon={debitCard} />
-          <PayamentCard icon={cash} />
+          <PayamentCard
+            icon={creditCard}
+            title={"cartão de crédito"}
+            active={paymentMethod}
+            onClick={() => handleChangePaymentMethod("cartão de crédito")}
+          />
+          <PayamentCard
+            icon={debitCard}
+            title={"cartão de débito"}
+            active={paymentMethod}
+            onClick={() => handleChangePaymentMethod("cartão de débito")}
+          />
+          <PayamentCard
+            icon={cash}
+            title={"dinheiro"}
+            active={paymentMethod}
+            onClick={() => handleChangePaymentMethod("dinheiro")}
+          />
         </RowPayament>
       </FooterPayament>
     </AddressAndPaymentColum>

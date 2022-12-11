@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-export const PayamentCardStyled = styled.div`
+interface IPayamentCardStyled {
+  active: string;
+  name: string;
+}
+
+export const PayamentCardStyled = styled.div<IPayamentCardStyled>`
   background: #e6e5e5;
   border-radius: 6px;
   padding: 16px;
@@ -8,6 +13,18 @@ export const PayamentCardStyled = styled.div`
   display: flex;
   flex-direction: row;
   height: 51px;
+
+  background: ${(props) =>
+    props.active === props.name ? "#ebe5f9" : "#e6e5e5"};
+
+  border: ${(props) =>
+    props.active === props.name ? "1px solid #8047f8" : "none"};
+
+  flex: 1;
+
+  @media screen and (max-width: 768px) {
+    flex: 0;
+  }
 
   cursor: pointer;
 

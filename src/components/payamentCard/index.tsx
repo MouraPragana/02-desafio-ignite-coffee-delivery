@@ -1,14 +1,17 @@
 import { PayamentCardStyled } from "./styles";
 
 interface IPayamentCard {
-  icon?: string;
+  title: string;
+  icon: string;
+  active: string;
+  onClick: () => void;
 }
 
-export function PayamentCard({ icon }: IPayamentCard) {
+export function PayamentCard({ title, icon, active, onClick }: IPayamentCard) {
   return (
-    <PayamentCardStyled>
+    <PayamentCardStyled active={active} name={title} onClick={onClick}>
       <img src={icon} alt="" />
-      <span>cartão de crédito</span>
+      <span>{title}</span>
     </PayamentCardStyled>
   );
 }

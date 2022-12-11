@@ -88,6 +88,11 @@ export const RowPayament = styled.div`
   gap: 0.6rem;
   margin-top: 2rem;
   justify-content: center;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 interface InputProps {

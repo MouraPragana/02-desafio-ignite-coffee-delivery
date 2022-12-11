@@ -13,6 +13,7 @@ export interface Product {
 
 export interface CoffeeState {
   products: Product[];
+  paymentMethod: string;
 }
 
 export function CoffeeReducer(state: CoffeeState, action: any) {
@@ -60,6 +61,12 @@ export function CoffeeReducer(state: CoffeeState, action: any) {
         draft.products = draft.products.filter(
           (item) => item.id !== action.payload.productToDelete.id
         );
+      });
+    }
+
+    case ActionTypes.CHANGE_PAYMENT_METHOD: {
+      return produce(state, (draft) => {
+        draft.paymentMethod = action.payload.paymentMethod;
       });
     }
 
