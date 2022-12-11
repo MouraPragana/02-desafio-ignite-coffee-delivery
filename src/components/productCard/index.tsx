@@ -15,6 +15,7 @@ import {
 import { CurrencyConverter } from "../../functions/currencyConverter";
 import { useContext } from "react";
 import { CoffeeContext } from "../../context/coffeeContext";
+import { Link } from "react-router-dom";
 
 interface ProductCardProps {
   id: string;
@@ -62,8 +63,8 @@ export function ProductCard({
     removeOneProduct(productToRemove);
   }
 
-  const productQuantOnCart = products.find((product) => product.id === id)
-    ? products.find((product) => product.id === id)?.quant
+  const productQuantOnCart = products?.find((product) => product.id === id)
+    ? products?.find((product) => product.id === id)?.quant
     : 0;
 
   return (
@@ -86,7 +87,7 @@ export function ProductCard({
           <span>{productQuantOnCart}</span>
           <ButtonAmount onClick={handleAddProduct}>+</ButtonAmount>
         </ProductAmount>
-        <ButtonCart>
+        <ButtonCart to="/checkout">
           <img src={purpleCart} alt="" />
         </ButtonCart>
       </ProductPriceAndAmout>

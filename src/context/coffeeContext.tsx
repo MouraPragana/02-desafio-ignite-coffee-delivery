@@ -1,43 +1,69 @@
-import { createContext, ReactNode, useReducer } from 'react'
-import { CoffeeReducer, Product } from '../reducers/coffee/reducer'
-import { newProduct, removeProduct } from '../reducers/coffee/actions'
+import { createContext, ReactNode, useEffect, useReducer } from "react";
+import { CoffeeReducer, Product } from "../reducers/coffee/reducer";
+import {
+  deleteProduct,
+  newProduct,
+  removeProduct,
+} from "../reducers/coffee/actions";
 
 interface CoffeeContextType {
-  products: Product[]
-  productsOnCart: number
-  addNewProduct: (data: Product) => void
-  removeOneProduct: (data: Product) => void
+  products: Product[];
+  addNewProduct: (data: Product) => void;
+  removeOneProduct: (data: Product) => void;
+  deleteAnEntireProduct: (data: Product) => void;
 }
 
-export const CoffeeContext = createContext({} as CoffeeContextType)
+export const CoffeeContext = createContext({} as CoffeeContextType);
 
 interface CoffeeContextProviderProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 export function CoffeeContextProvider({
   children,
 }: CoffeeContextProviderProps) {
-  const [coffeeState, dispatch] = useReducer(CoffeeReducer, {
-    products: [],
-    productsOnCart: 0,
-  })
+  const [coffeeState, dispatch] = useReducer(
+    CoffeeReducer,
+    {
+      products: [],
+    },
+    () => {
+      const storedStateAsJSON = localStorage.getItem("@ignite-coffe-delivery");
 
-  const { products, productsOnCart } = coffeeState
+      if (storedStateAsJSON) {
+        return JSON.parse(storedStateAsJSON);
+      }
+    }
+  );
+
+  const { products } = coffeeState;
 
   function addNewProduct(data: Product) {
-    dispatch(newProduct(data))
+    dispatch(newProduct(data));
   }
 
   function removeOneProduct(data: Product) {
-    dispatch(removeProduct(data))
+    dispatch(removeProduct(data));
   }
+
+  function deleteAnEntireProduct(data: Product) {
+    dispatch(deleteProduct(data));
+  }
+
+  useEffect(() => {
+    localStorage.setItem("@ignite-coffe-delivery", JSON.stringify(coffeeState));
+  }, [coffeeState]);
 
   return (
     <CoffeeContext.Provider
-      value={{ addNewProduct, removeOneProduct, products, productsOnCart }}
+      value={{
+        addNewProduct,
+        removeOneProduct,
+        deleteAnEntireProduct,
+        products,
+      }}
     >
       {children}
     </CoffeeContext.Provider>
-  )
+  );
 }

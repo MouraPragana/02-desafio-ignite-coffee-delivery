@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
-import { Product } from './reducer'
+import { Product } from "./reducer";
 
 export enum ActionTypes {
-  ADD_NEW_PRODUCT = 'ADD_NEW_PRODUCT',
-  REMOVE_PRODUCT = 'REMOVE_PRODUCT',
+  ADD_NEW_PRODUCT = "ADD_NEW_PRODUCT",
+  REMOVE_PRODUCT = "REMOVE_PRODUCT",
+  DELETE_AN_ENTIRE_PRODUCT = "DELETE_AN_ENTIRE_PRODUCT",
 }
 
 export function newProduct(newProduct: Product) {
@@ -12,7 +13,7 @@ export function newProduct(newProduct: Product) {
     payload: {
       newProduct,
     },
-  }
+  };
 }
 
 export function removeProduct(productToRemove: Product) {
@@ -21,5 +22,14 @@ export function removeProduct(productToRemove: Product) {
     payload: {
       productToRemove,
     },
-  }
+  };
+}
+
+export function deleteProduct(productToDelete: Product) {
+  return {
+    type: ActionTypes.DELETE_AN_ENTIRE_PRODUCT,
+    payload: {
+      productToDelete,
+    },
+  };
 }

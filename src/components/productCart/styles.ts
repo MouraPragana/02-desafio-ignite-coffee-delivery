@@ -67,7 +67,7 @@ export const ProductAmount = styled.div`
   margin-top: 8px;
 `;
 
-export const ButtonAmount = styled.button`
+export const ButtonAmount = styled.div`
   border: none;
   background-color: ${(props) => props.theme["gray-light"]};
   color: ${(props) => props.theme.purple};

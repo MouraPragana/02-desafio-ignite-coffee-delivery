@@ -1,3 +1,7 @@
+import { useContext } from "react";
+import trashIcon from "../../assets/svg/trashIcon.svg";
+import { CoffeeContext } from "../../context/coffeeContext";
+import { CurrencyConverter } from "../../functions/currencyConverter";
 import {
   ButtonAmount,
   ProducAmountAndRemoveRow,
@@ -6,28 +10,86 @@ import {
   ProductCartCardInfo,
   RemoveButton,
 } from "./styles";
-import coffeBrand1 from "/coffeeBrand1.svg";
-import trashIcon from "../../assets/svg/trashIcon.svg";
 
-export function ProductCart() {
+interface IProductCartProps {
+  id: string;
+  tags: string[];
+  title: string;
+  description: string;
+  imageUrl: string;
+  quant: number;
+  price: number;
+}
+
+export function ProductCart({
+  id,
+  tags,
+  title,
+  description,
+  imageUrl,
+  quant,
+  price,
+}: IProductCartProps) {
+  const { removeOneProduct, addNewProduct, deleteAnEntireProduct } =
+    useContext(CoffeeContext);
+
+  function handleAddProduct() {
+    const newProduct = {
+      id,
+      tags,
+      title,
+      description,
+      price,
+      imageUrl,
+      quant: 1,
+    };
+    addNewProduct(newProduct);
+  }
+
+  function handleRemoveProduct() {
+    const productToRemove = {
+      id,
+      tags,
+      title,
+      description,
+      price,
+      imageUrl,
+      quant: 1,
+    };
+    removeOneProduct(productToRemove);
+  }
+
+  function handleDeleteAnEntireProduct() {
+    const productToDelete = {
+      id,
+      tags,
+      title,
+      description,
+      price,
+      imageUrl,
+      quant,
+    };
+    deleteAnEntireProduct(productToDelete);
+  }
+
   return (
     <ProductCartCard>
-      <img src={coffeBrand1} />
+      <img src={imageUrl} />
       <ProductCartCardInfo>
-        <span>Chocolate Quente</span>
+        <span>{title}</span>
         <ProducAmountAndRemoveRow>
           <ProductAmount>
-            <ButtonAmount onClick={() => {}}>-</ButtonAmount>
-            <span>{1}</span>
-            <ButtonAmount onClick={() => {}}>+</ButtonAmount>
+            <ButtonAmount onClick={handleRemoveProduct}>-</ButtonAmount>
+            <span>{quant}</span>
+            <ButtonAmount onClick={handleAddProduct}>+</ButtonAmount>
           </ProductAmount>
-          <RemoveButton>
+          <RemoveButton onClick={handleDeleteAnEntireProduct}>
             <img src={trashIcon} />
             <span>Remover</span>
           </RemoveButton>
         </ProducAmountAndRemoveRow>
       </ProductCartCardInfo>
-      <span>R$ 9,90</span>
+      <span>R$ {CurrencyConverter(price * quant)}</span>
     </ProductCartCard>
   );
 }

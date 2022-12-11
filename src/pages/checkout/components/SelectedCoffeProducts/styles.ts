@@ -18,7 +18,7 @@ export const Header = styled.span`
 
 export const Content = styled.div`
   margin-top: 15px;
-  background-color: #f3f2f2;
+  background-color: ${(props) => props.theme["background-productCard"]};
   border-radius: 6px 44px;
   padding: 16px 40px 40px 40px;
 
@@ -62,7 +62,7 @@ export const FormSubmitButton = styled.button`
   width: 100%;
   margin-top: 36px;
   background: #dbac2c;
-  color: #ffffff;
+  color: ${(props) => props.theme.white};
   border: none;
   border-radius: 6px;
   padding: 12px 8px;
@@ -91,7 +91,7 @@ export const TextoAviso = styled.span`
   text-align: center;
 
   margin-top: 15px;
-  background-color: #f3f2f2;
+  background-color: ${(props) => props.theme["background-productCard"]};
   border-radius: 8px;
   padding: 18px 25px;
 `;
