@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useFormContext } from "react-hook-form";
 import cash from "../../../../assets/svg/cash.svg";
 import creditCard from "../../../../assets/svg/creditCard.svg";
 import Currency from "../../../../assets/svg/currency.svg";
@@ -21,6 +22,7 @@ import {
 
 export function CompleteOrderSection() {
   const { paymentMethod, selectPaymentMethod } = useContext(CoffeeContext);
+  const { register } = useFormContext();
 
   function handleChangePaymentMethod(data: string) {
     selectPaymentMethod(data);
@@ -38,21 +40,55 @@ export function CompleteOrderSection() {
           </div>
         </Title>
         <Content>
-          <InputStyled width="200px" type="text" placeholder="CEP" />
-          <InputStyled width="560px" type="text" placeholder="Rua" />
+          <InputStyled
+            width="200px"
+            type="text"
+            placeholder="CEP"
+            {...register("cep")}
+          />
+          <InputStyled
+            width="560px"
+            type="text"
+            placeholder="Rua"
+            {...register("rua")}
+          />
 
           <div>
-            <InputStyled width="200px" type="text" placeholder="Número" />
+            <InputStyled
+              width="200px"
+              type="text"
+              placeholder="Número"
+              {...register("numero", { valueAsNumber: true })}
+            />
             <InputPlaceholder>
-              <input id="complemento" placeholder="Complemento" />
+              <input
+                id="complemento"
+                placeholder="Complemento"
+                {...register("complemento")}
+              />
               <label htmlFor="complemento">opcional</label>
             </InputPlaceholder>
           </div>
 
           <div>
-            <InputStyled width="200px" type="text" placeholder="Bairro" />
-            <InputStyled width="276px" type="text" placeholder="Cidade" />
-            <InputStyled width="60px" type="text" placeholder="UF" />
+            <InputStyled
+              width="200px"
+              type="text"
+              placeholder="Bairro"
+              {...register("bairro")}
+            />
+            <InputStyled
+              width="276px"
+              type="text"
+              placeholder="Cidade"
+              {...register("cidade")}
+            />
+            <InputStyled
+              width="60px"
+              type="text"
+              placeholder="UF"
+              {...register("uf")}
+            />
           </div>
         </Content>
       </Body>

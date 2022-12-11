@@ -35,7 +35,6 @@ export const ProductCartCardInfo = styled.div`
     line-height: 1.3;
     color: #403937;
     font-size: 1rem;
-
     @media screen and (max-width: 768px) {
       font-size: 0.9rem;
     }
@@ -46,7 +45,6 @@ export const ProducAmountAndRemoveRow = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-
   @media screen and (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
@@ -67,7 +65,7 @@ export const ProductAmount = styled.div`
   margin-top: 8px;
 `;
 
-export const ButtonAmount = styled.div`
+export const ButtonAmount = styled.button`
   border: none;
   background-color: ${(props) => props.theme["gray-light"]};
   color: ${(props) => props.theme.purple};
@@ -76,22 +74,19 @@ export const ButtonAmount = styled.div`
   cursor: pointer;
 `;
 
-export const RemoveButton = styled.div`
+export const RemoveButton = styled.button`
   display: flex;
   width: 91px;
   padding: 6.5px 8px;
   margin-left: 8px;
   background-color: #e6e5e5;
   border-radius: 6px;
-
+  border: 0px solid;
   cursor: pointer;
-
   transition: all 0.2s ease-in-out;
-
   &:hover {
     scale: 1.05;
   }
-
   > span {
     text-transform: uppercase;
     font-family: "Roboto";
@@ -99,12 +94,10 @@ export const RemoveButton = styled.div`
     color: #574f4d;
     line-height: 1.6;
   }
-
   > img {
     width: 1rem;
     margin-right: 4px;
   }
-
   @media screen and (max-width: 768px) {
     margin: 0;
   }

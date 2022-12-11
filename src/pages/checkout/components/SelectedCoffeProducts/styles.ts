@@ -81,6 +81,18 @@ export const FormSubmitButton = styled.button`
   }
 `;
 
+export const ProdutoEmEntrega = styled(FormSubmitButton)`
+  background: grey;
+  text-align: center;
+  color: ${(props) => props.theme.white};
+  cursor: auto;
+
+  &:hover {
+    background: grey;
+    scale: 1;
+  }
+`;
+
 export const TextoAviso = styled.span`
   display: flex;
   justify-content: center;
