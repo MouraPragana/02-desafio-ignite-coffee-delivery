@@ -90,9 +90,6 @@ export function CoffeeContextProvider({
 
   useEffect(() => {
     localStorage.setItem("@ignite-coffe-delivery", JSON.stringify(coffeeState));
-  }, [coffeeState]);
-
-  useEffect(() => {
     let interval: number;
 
     if (lastOrder && !lastOrder.hasArrived) {
@@ -116,7 +113,7 @@ export function CoffeeContextProvider({
     return () => {
       clearInterval(interval);
     };
-  }, [lastOrder, setOrderHasArrived, setSecondsToArrive]);
+  }, [coffeeState, setOrderHasArrived, setSecondsToArrive]);
 
   return (
     <CoffeeContext.Provider
