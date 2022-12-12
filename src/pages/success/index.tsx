@@ -3,7 +3,7 @@ import GpsSuccess from "../../assets/svg/gpsSuccess.svg";
 import TimeSuccess from "../../assets/svg/timeSuccess.svg";
 import MoneySuccess from "../../assets/svg/moneySuccess.svg";
 import CarDelivery from "../../assets/svg/carDelivery.svg";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CoffeeContext } from "../../context/coffeeContext";
 import { SpanPagamento } from "../home/components/welcomeSection/styles";
 import { Navigate } from "react-router-dom";
@@ -13,7 +13,7 @@ export function Success() {
 
   return (
     <>
-      {lastOrder && lastOrder?.hasArrived ? (
+      {lastOrder.hasArrived === undefined || lastOrder.hasArrived ? (
         <Navigate to="/" />
       ) : (
         <SuccessContainer>
