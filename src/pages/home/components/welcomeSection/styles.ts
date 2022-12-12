@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import bakcgroundHome from '../../../../assets/svg/backgroundHome.svg'
+import styled from "styled-components";
+import bakcgroundHome from "../../../../assets/svg/backgroundHome.svg";
 
 export const WelcomeSection = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ export const WelcomeSection = styled.div`
   background: url(${bakcgroundHome});
   background-repeat: no-repeat;
   background-size: cover;
-`
+`;
 
 export const MainContent = styled.div`
   display: flex;
@@ -26,13 +26,13 @@ export const MainContent = styled.div`
     max-width: 29.75rem;
     max-height: 22.5rem;
   }
-`
+`;
 
 export const TextContent = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-`
+`;
 
 export const Title = styled.h1`
   display: flex;
@@ -40,9 +40,9 @@ export const Title = styled.h1`
   font-size: 3rem;
   line-height: 1.3;
   max-width: 36.75rem;
-  font-family: 'Baloo 2', cursive;
-  color: ${(props) => props.theme['title-color']};
-`
+  font-family: "Baloo 2", cursive;
+  color: ${(props) => props.theme["title-color"]};
+`;
 
 export const SubTitle = styled.span`
   display: flex;
@@ -51,9 +51,9 @@ export const SubTitle = styled.span`
   max-width: 36.75rem;
   align-self: stretch;
   margin-top: 1rem;
-  color: ${(props) => props.theme['subtitle-color']};
+  color: ${(props) => props.theme["subtitle-color"]};
   font-stretch: 100;
-`
+`;
 
 export const AdditionalTextContent = styled.div`
   display: flex;
@@ -67,10 +67,14 @@ export const AdditionalTextContent = styled.div`
     gap: 0.5rem;
     min-width: 45%;
     margin-top: 1rem;
-    color: ${(props) => props.theme['additional-content-text']};
+    color: ${(props) => props.theme["additional-content-text"]};
     line-height: 1.3;
     img {
       width: 2rem;
     }
   }
-`
+`;
+
+export const SpanPagamento = styled.span`
+  text-transform: capitalize;
+`;

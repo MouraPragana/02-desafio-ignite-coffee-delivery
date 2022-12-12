@@ -101,7 +101,7 @@ export function CoffeeContextProvider({
 
         if (secondsToDeliver <= 0) {
           setOrderHasArrived();
-          location.pathname === "/checkout" && navigate(0);
+          ["/checkout", "/success"].includes(location.pathname) && navigate(0);
         }
 
         if (secondsToDeliver > 0) {
