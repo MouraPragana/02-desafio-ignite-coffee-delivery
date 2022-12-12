@@ -40,10 +40,10 @@ export function Checkout() {
       products,
       enderecoEntrega: data,
       paymentMethod,
-      dateToDelivery: addMinutes(new Date(), 30),
+      dateToDelivery: addMinutes(new Date(), 2),
       hasArrived: false,
       secondsToArrive: differenceInSeconds(
-        addMinutes(new Date(), 30),
+        addMinutes(new Date(), 2),
         new Date()
       ),
     };
