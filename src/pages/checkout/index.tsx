@@ -36,6 +36,9 @@ export function Checkout() {
   const { handleSubmit } = methods;
 
   function onSubmit(data: newOrderData) {
+    if (paymentMethod === "" || paymentMethod === undefined) {
+      return;
+    }
     const lastOrder = {
       products,
       enderecoEntrega: data,

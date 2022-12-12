@@ -53,6 +53,7 @@ export function CompleteOrderSection() {
             type="text"
             placeholder="CEP"
             {...register("cep")}
+            required
           />
           <InputStyled
             disabled={isFormDisabled}
@@ -61,6 +62,7 @@ export function CompleteOrderSection() {
             type="text"
             placeholder="Rua"
             {...register("rua")}
+            required
           />
 
           <div>
@@ -73,6 +75,7 @@ export function CompleteOrderSection() {
               type="text"
               placeholder="Número"
               {...register("numero", { valueAsNumber: true })}
+              required
             />
             <InputPlaceholder>
               <input
@@ -98,6 +101,7 @@ export function CompleteOrderSection() {
               type="text"
               placeholder="Bairro"
               {...register("bairro")}
+              required
             />
             <InputStyled
               disabled={isFormDisabled}
@@ -108,6 +112,7 @@ export function CompleteOrderSection() {
               type="text"
               placeholder="Cidade"
               {...register("cidade")}
+              required
             />
             <InputStyled
               disabled={isFormDisabled}
@@ -116,6 +121,7 @@ export function CompleteOrderSection() {
               type="text"
               placeholder="UF"
               {...register("uf")}
+              required
             />
           </div>
         </Content>
