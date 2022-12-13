@@ -5,7 +5,7 @@ export const ProductCartCard = styled.div`
   flex-direction: row;
   align-items: flex-start;
   padding: 24px 0 24px 0;
-  border-bottom: 1px solid #e6e5e5;
+  border-bottom: 1px solid ${(props) => props.theme["gray-light"]};
 
   img {
     width: 4rem;
@@ -15,7 +15,7 @@ export const ProductCartCard = styled.div`
   > span {
     flex: 1;
     text-align: right;
-    color: #574f4d;
+    color: ${(props) => props.theme["additional-content-text"]};
     line-height: 1.3;
     font-weight: bold;
     font-family: "Roboto";
@@ -33,7 +33,7 @@ export const ProductCartCardInfo = styled.div`
   span {
     font-family: "Roboto";
     line-height: 1.3;
-    color: #403937;
+    color: ${(props) => props.theme["subtitle-color"]};
     font-size: 1rem;
     @media screen and (max-width: 768px) {
       font-size: 0.9rem;
@@ -79,7 +79,7 @@ export const RemoveButton = styled.button`
   width: 91px;
   padding: 6.5px 8px;
   margin-left: 8px;
-  background-color: #e6e5e5;
+  background-color: ${(props) => props.theme["gray-light"]};
   border-radius: 6px;
   border: 0px solid;
   cursor: pointer;
@@ -91,7 +91,7 @@ export const RemoveButton = styled.button`
     text-transform: uppercase;
     font-family: "Roboto";
     font-size: 0.75rem;
-    color: #574f4d;
+    color: ${(props) => props.theme["additional-content-text"]};
     line-height: 1.6;
   }
   > img {

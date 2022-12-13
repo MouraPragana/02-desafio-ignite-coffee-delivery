@@ -44,7 +44,7 @@ export const DescribeCartInfo = styled.span`
   line-height: 1.3;
   font-family: "Roboto";
   font-size: 0.875rem;
-  color: #574f4d;
+  color: ${(props) => props.theme["additional-content-text"]};
 `;
 
 export const PriceCartInfo = styled(DescribeCartInfo)`
@@ -53,7 +53,7 @@ export const PriceCartInfo = styled(DescribeCartInfo)`
 
 export const TotalCartInfo = styled(DescribeCartInfo)`
   font-size: 1.25rem;
-  color: #403937;
+  color: ${(props) => props.theme["subtitle-color"]};
   font-weight: bold;
 `;
 
@@ -61,7 +61,7 @@ export const FormSubmitButton = styled.button`
   text-transform: uppercase;
   width: 100%;
   margin-top: 36px;
-  background: #dbac2c;
+  background: ${(props) => props.theme.yellow};
   color: ${(props) => props.theme.white};
   border: none;
   border-radius: 6px;

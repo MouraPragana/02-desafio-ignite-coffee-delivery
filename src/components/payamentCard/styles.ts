@@ -6,7 +6,7 @@ interface IPayamentCardStyled {
 }
 
 export const PayamentCardStyled = styled.div<IPayamentCardStyled>`
-  background: #e6e5e5;
+  background: ${(props) => props.theme["gray-light"]};
   border-radius: 6px;
   padding: 16px;
   gap: 12px;
@@ -15,10 +15,12 @@ export const PayamentCardStyled = styled.div<IPayamentCardStyled>`
   height: 51px;
 
   background: ${(props) =>
-    props.active === props.name ? "#ebe5f9" : "#e6e5e5"};
+    props.active === props.name
+      ? props.theme["purple-light"]
+      : props.theme["gray-light"]};
 
   border: ${(props) =>
-    props.active === props.name ? "1px solid #8047f8" : "none"};
+    props.active === props.name ? `1px solid ${props.theme.purple}` : "none"};
 
   flex: 1;
 

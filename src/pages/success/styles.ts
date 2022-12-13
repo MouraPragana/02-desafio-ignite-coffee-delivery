@@ -25,13 +25,13 @@ export const Title = styled.div`
     font-weight: 800;
     font-size: 2rem;
     line-height: 1.3;
-    color: #c47f17;
+    color: ${(props) => props.theme["yellow-dark"]};
   }
 
   > p {
     font-size: 20px;
     line-height: 1.3;
-    color: #403937;
+    color: ${(props) => props.theme["subtitle-color"]};
     margin-top: 4px;
   }
 `;
@@ -72,8 +72,15 @@ export const Left = styled.div`
   /* https://gist.github.com/stereokai/36dc0095b9d24ce93b045e2ddc60d7a0 */
   border: double 1px transparent;
   border-radius: 6px 36px;
-  background-image: linear-gradient(#fafafa, #fafafa),
-    radial-gradient(circle at top left, #dbac2c, #8047f8);
+  background-image: linear-gradient(
+      ${(props) => props.theme["white-background"]},
+      ${(props) => props.theme["white-background"]}
+    ),
+    radial-gradient(
+      circle at top left,
+      ${(props) => props.theme.yellow},
+      ${(props) => props.theme.purple}
+    );
   background-origin: border-box;
   background-clip: padding-box, border-box;
 
@@ -95,7 +102,7 @@ export const Item = styled.div`
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.3;
-  color: #574f4d;
+  color: ${(props) => props.theme["additional-content-text"]};
 
   span {
     font-weight: bold;
